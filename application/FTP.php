@@ -32,7 +32,7 @@
                 return ftp_nlist($this->ftp, $directory . $fileName);
             }
 
-            return null;
+            return array();
         }
 
         function downloadFile(string $fileName, string $saveDirectory, string $remoteFile) {
