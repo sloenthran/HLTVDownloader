@@ -29,16 +29,6 @@
         if($date->format("ymd") == $idTwo) {
             $map = explode(".", $data[1]);
 
-            $tableData .= '<tr>'.
-                "<td>{$map[0]}</td>".
-                "<td>{$date->format("H:i d.m.Y")}</td>".
-                "<td><input type=\"text\" value=\"". getUrl() ."files/{$file}.zip\"></td>".
-                "<td>". File::fileSizeConvert(filesize("./files/{$file}.zip")) ."</td>".
-                "<td><a href=\"". getUrl() ."files/{$file}.zip\">Klik</a></td>".
-                '</tr>';
-
-            echo $a;
-
             $menu .= '<li>
                     <a href="'.getUrl().'files/'.$file.'.zip"><i class="fa fa-cloud-download left-icon lblue"></i>
                         <span class="right-icon"><i class="fa fa-arrow-circle-o-right"></i></span>
