@@ -7,7 +7,10 @@
             $filesList = array();
 
             while($read = readdir($dir)) {
-                if($read != '.' || $read != '..') {
+
+                if($read == '.' || $read == '..') {
+                    continue;
+                } else {
                     $info = pathinfo($read);
                     $filesList[] = $info['filename'];
                 }
@@ -18,7 +21,7 @@
             return $filesList;
         }
 
-        static function getFilesInSpecificPrefix(string $directory, string $prefix, string $delimiter) {
+        static function getFilesInSpecificPrefix(string $directory, string $prefix, string $delimiter) : array {
             $filesList = File::getFileList($directory);
 
             $newFilesList = array();
@@ -72,5 +75,33 @@
             }
 
             return $return;
+        }
+
+        static function countFileAndFileSize(string $directory) : array {
+            $fileList = File::getFileList($directory);
+            $returnArray = array(0, 0);
+
+            foreach($fileList as $file) {
+                $returnArray[0] += filesize($directory.'/'.$file.'.zip');
+                $returnArray[1]++;
+            }
+
+            $returnArray[0] = File::fileSizeConvert($returnArray[0]);
+
+            return $returnArray;
+        }
+
+        static function countFileAndSizeInSpecificPrefix(string $directory, string $prefix, string $delimiter) : array {
+            $fileList = File::getFilesInSpecificPrefix($directory, $prefix, $delimiter);
+            $returnArray = array(0, 0);
+
+            foreach($fileList as $file) {
+                $returnArray[0] += filesize($directory.'/'.$file.'.zip');
+                $returnArray[1]++;
+            }
+
+            $returnArray[0] = File::fileSizeConvert($returnArray[0]);
+
+            return $returnArray;
         }
     }

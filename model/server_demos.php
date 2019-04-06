@@ -45,3 +45,4 @@
     $view->add('menu', $menu);
     $view->add('back', 'index.php?page=server&id='.$id.'');
     $view->add('header',$server[$id]['name']. ' :: '. DateTime::createFromFormat("ymd", $idTwo)->format("d.m.Y"));
+    $view->add('fileSize', '');

@@ -20,7 +20,10 @@
               </li>";
     }
 
+    $countFileAndSize = File::countFileAndSizeInSpecificPrefix('./files', $server[$id]['prefix'], "_");
+
     $view = new View('index');
     $view->add('menu', $menu);
     $view->add('back', 'index.php');
     $view->add('header', $server[$id]['name']);
+    $view->add("fileSize", "This server archive has {$countFileAndSize[1]} demos ({$countFileAndSize[0]})");

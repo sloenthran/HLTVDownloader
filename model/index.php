@@ -13,7 +13,10 @@
         $number++;
     }
 
+    $countFileAndSize = File::countFileAndFileSize('./files');
+
     $view = new View('index');
     $view->add("menu", $menu);
     $view->add("back", "index.php");
     $view->add("header", "HLTV Downloader");
+    $view->add("fileSize", "The archive has {$countFileAndSize[1]} demos ({$countFileAndSize[0]})");
