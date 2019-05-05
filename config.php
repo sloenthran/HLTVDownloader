@@ -1,8 +1,11 @@
 <?php
 
-    $server[0]['host'] = '127.0.0.1';
-    $server[0]['user'] = 'root';
-    $server[0]['pass'] = 'pass';
-    $server[0]['directory'] = 'cstrike/'; // Directory in FTP with .dem files
-    $server[0]['prefix'] = 'test'; // Enter anything but it must be unique!
-    $server[0]['name'] = 'Test server'; // Server name in menu
+    $server = array();
+
+    $count = count($server);
+    $server[$count]['host'] = '127.0.0.1';
+    $server[$count]['user'] = 'root';
+    $server[$count]['pass'] = 'pass';
+    $server[$count]['directory'] = 'cstrike/'; // Directory in FTP with .dem files
+    $server[$count]['prefix'] = 'test'; // Enter anything but it must be unique!
+    $server[$count]['name'] = 'Test server'; // Server name in menu
